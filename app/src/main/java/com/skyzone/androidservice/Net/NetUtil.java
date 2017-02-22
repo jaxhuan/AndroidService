@@ -103,6 +103,7 @@ public class NetUtil {
                     throw new NetworkErrorException("load image failed:" + url);
                 BitmapCache.Instance.putCache(url, bitmap);
                 BitmapCache.Instance.puDiskCache(url, bitmap);
+                inputStream.close();
                 return bitmap;
             } else {
                 throw new NetworkErrorException("code is: " + responseCode);
@@ -130,4 +131,5 @@ public class NetUtil {
         os.close();
         return state;
     }
+
 }
